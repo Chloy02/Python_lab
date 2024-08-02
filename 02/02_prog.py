@@ -1,8 +1,4 @@
-# main_SetOperations.py
-
-from a02_modules import (add_element, remove_element, union_and_intersection,
-                                  difference, is_subset, set_length, symmetric_difference,
-                                  power_set, unique_subsets)
+from a02_modules import *
 
 # Example sets
 set1 = {1, 2, 3, 4}
