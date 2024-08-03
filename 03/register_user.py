@@ -1,12 +1,29 @@
-# register_user.py
-
 import smartscan_registration_module as srm
 
-# Example SmartScan Code (manually encoded)
-# Let's assume the SmartScan code contains "John Doe,john.doe@example.com"
-# For this example, we manually reverse the string twice to simulate encoding
-user_data = "John Doe,john.doe@example.com"
-encoded_smartscan_code = user_data[::-1][::-1]
+# Defining the list to store the inputted data
+user_data = []
 
-# Register the user using the SmartScan code
-srm.RegisterUserFromSmartScan(encoded_smartscan_code)
+print("***Enter the user data***")
+
+choice = True
+i = 1
+# Loop to get as many records as you want
+while choice:
+    print("User ", i)
+    name = input("Enter name: ")
+    email = input("Enter email: ")
+    data = f"{name},{email}"
+    user_data.append(data)
+    more = input("Do you want to add another user? (yes/no): ")
+    # Using .lower() to account for case sensitivity
+    if more.lower() == "yes":
+        i += 1
+    else:
+        choice = False
+
+# Concatenate all user data into a single string separated by newlines
+all_user_data = "\n".join(user_data)
+# Calling the functions to get the outputs
+srm.generate_qr_code(all_user_data)
+
+srm.RegisterUserFromSmartScan("imgqr.png")
