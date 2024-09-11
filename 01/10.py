@@ -30,4 +30,4 @@ for i in range(0, 12):
         break
     if not month_exist:
         print("Enter valid month")
-        break
+        continue
