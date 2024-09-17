@@ -69,7 +69,12 @@ tesla = Tesla_news()
 spacex = SpaceX_news()
 
 news = [Nasa, tesla, spacex]
+nnews = ["Nasa", "tesla", "spacex"]
 
-for n in news:
+for n in news :
     print(f"==============================")
     print(n.fetch_news())
+    x = news.index(n)
+    a = open( f'{nnews[x]}.txt', 'w')
+    a.write(n.fetch_news())
+    a.close()
